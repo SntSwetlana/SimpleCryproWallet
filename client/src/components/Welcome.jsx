@@ -4,6 +4,8 @@ import {BsInfoCircle} from "react-icons/all.js";
 import {Loader} from "./index.js";
 import {TransactionContext} from "../context/TransactionContext.jsx";
 import React, {useContext} from "react";
+import {shortenaddress} from "../utils/shortenaddress.js";
+
 
 const  commonStyles = 'min-h-[70px] sm:px-0 px-2 sm:min-w-[120px] flex justify-center items-center border-[0.5px] border-gray-400 text-sm font-light text-white'
 
@@ -19,7 +21,7 @@ const Input = ({placeholder, name, type, value, handleChange}) => (
 )
 
 const Welcome = () => {
-    const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionContext);
+    const { connectWallet, currentAccount, formData, sendTransaction, handleChange,isLoading } = useContext(TransactionContext);
 
     const handleSubmit = (e) => {
         const { addressTo, amount, keyword, message} = formData;
@@ -80,7 +82,7 @@ const Welcome = () => {
                             </div>
                             <div>
                                 <p className='text-white font-light text-sm'>
-                                    0x6h8a6f...3e4b21
+                                    {shortenaddress(currentAccount)}
                                 </p>
                                 <p className='text-white font-semibold text-lg mt-1'>
                                     Ethereum
@@ -95,7 +97,7 @@ const Welcome = () => {
                         <Input placeholder='Message' name='message' type='text' handleChange={handleChange}/>
 
                         <div className='h-[1px] w-full bg-gray-400 my-2' />
-                        {false ? (
+                        {isLoading ? (
                             <Loader />
                         ) : (
                             <button
