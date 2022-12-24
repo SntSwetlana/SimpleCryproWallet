@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/__crypto___.iml" filepath="$PROJECT_DIR$/.idea/__crypto___.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EtheriumBasics.iml" filepath="$PROJECT_DIR$/.idea/EtheriumBasics.iml" />
     </modules>
   </component>
 </project>
